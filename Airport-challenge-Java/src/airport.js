@@ -1,4 +1,4 @@
-function Airport(weather) {
+function Airport() {
   this.planes = [];
   // this.weather = weather;
   // this._defaultCapacity = defaultCapacity;
@@ -7,8 +7,9 @@ function Airport(weather) {
 Airport.prototype.land = function(plane) {
   //if the plane is already landed then it cannot land
   if (this.isLanded(plane)) {
-    throw new Error("plane has already landed")
+    throw new Error("Cannot land: plane has already landed")
   }
+  //if the airport is at capacity then it cannot land
   if (this.isFull()) {
     throw new Error("Cannot land as the airport is full");
   }
@@ -47,6 +48,7 @@ Airport.prototype.isLanded = function(plane) {
 Airport.prototype.takeOff = function(plane) {
   return false;
 };
+
 
   Airport.prototype.isStormy = function(plane) {
     return false;
